@@ -8,14 +8,16 @@ var connection = mysql.createConnection({
     database: "burger_db"
 });
 
-connection.connect(function (err) {
-    if (err) throw err;
-    console.log("I have successfully connected to the burger_db");
-    // runSearch();
-    console.log("-----------------------------------------");
-    console.log(" ");
-    console.log("  Thank you for eating at Eat-Da-Burger!!");
-    console.log(" ");
-    console.log("-----------------------------------------");
-    connection.end();
-});
+// connection.connect(function (err) {
+//     if (err) throw err;
+//     console.log("I have successfully connected to the burger_db");
+//     // runSearch();
+//     console.log("-----------------------------------------");
+//     console.log(" ");
+//     console.log("  Thank you for eating at Eat-Da-Burger!!");
+//     console.log(" ");
+//     console.log("-----------------------------------------");
+//     connection.end();
+// });
+
+module.export = connection;
