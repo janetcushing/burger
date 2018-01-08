@@ -1,11 +1,11 @@
 <div class="container">
     <header class="row mainHeading">
         <div class="col-md-12">
-            <div >
+            <div>
                 <br>
                 <img class="burgerImg" src="assets/img/burger.png" alt="yum yum burger">
                 <br>
-                <h2>Eat-Da-Burger!!</h2>
+                <h2 id="eatDaBurger">Eat-Da-Burger!!</h2>
                 <br>
             </div>
         </div>
@@ -13,36 +13,39 @@
 </div>
 
 
-<div class="clear"></div> 
+<div class="clear"></div>
 
 <!-- Pass in data from server.js -->
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <section >
+            <section>
                 <ul>
-                    {{#each burger}}
+                    {{#each uneatenBurger}}
                     <li class="notEaten">
-                           <p> <span class="label">ID:</span> {{this.id}}
-                            <span class="label">Burger:</span> {{this.burger}}
-                            <span class="label">Devoured:</span> {{this.devoured}}</p>
+                        <div>
+                            <span class="label"> </span> {{this.id}}
+                            <span class="label">. </span> {{this.burger_name}}
+                             <span class="label">Devoured:</span> {{this.devoured}}</div>
+                        <div>
                         <button data-id="{{this.id}}" class="devour">Devour it!
                             <a href="/{{this.id}}"></a>
                         </button>
+                        </div>
                     </li>
                     {{/each}}
                 </ul>
             </section>
         </div>
         <div class="col-md-6">
-            <section >
+            <section>
                 {{!-- note: grey out the burgers when they get eaten --}}
                 <ul>
-                    {{#each burger}}
+                    {{#each eatenBurger}}
                     <li class="eaten">
-                            <span class="label">ID:</span> {{this.id}}
-                            <span class="label">Burger:</span> {{this.burger}}
-                            <span class="label">Devoured:</span> {{this.devoured}}
+                        <span class="label">ID:</span> {{this.id}}
+                        <span class="label">Burger:</span> {{this.burger_name}}
+                        <span class="label">Devoured:</span> {{this.devoured}}
                     </li>
                     {{/each}}
                 </ul>
@@ -59,7 +62,7 @@
             <div class="newBurger">
                 <form class="create-form">
                     <div class="form-group">
-                        <input type="text" id="burger" name="burger" class="textarea_msg" placeholder="Enter Burger Here">
+                        <input type="text" id="newBurger" name="burger" class="textarea_msg" placeholder="Enter Burger Here">
                     </div>
                     <button id="submitBtn" class="submitBtn" type="submit">Submit</button>
                     <p class="burger_msg">Enter the Burger that you want and click the "Submit" button</p>
