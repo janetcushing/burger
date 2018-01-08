@@ -17,6 +17,9 @@
     height: 100px;
   }
 
+  #eatDaBurger {
+    color: red;
+  }
   
   .notEaten, .eaten {
     background-color: rgb(235, 226, 226);
