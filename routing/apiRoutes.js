@@ -21,18 +21,16 @@ module.exports = function (app) {
             console.log(data[0]);
             var uneaten = [];
             var eaten = [];
-            // for (let i = 0; i < data.length; i++) {
-            //     if (data[i].devoured) {
-            //         eaten.push(data[i])
-            //         console.log(JSON.stringify(eaten));
-            //     } else {
-            //         uneaten.push(data[i])
-            //         console.log(JSON.stringify(uneaten));
-            //     }
-            //     res.render("index", {uneatenBurger: uneaten});
-            // }
-            // console.log(JSON.stringify(uneaten));
-            // console.log(JSON.stringify(eaten));
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].devoured) {
+                    eaten.push(data[i])
+                } else {
+                    uneaten.push(data[i])
+                }
+                res.render("index", {uneatenBurger: uneaten, eatenBurger: eaten});
+            }
+            console.log(JSON.stringify(uneaten));
+            console.log(JSON.stringify(eaten));
             res.render("index", {uneatenBurger: data});
         });
     });
