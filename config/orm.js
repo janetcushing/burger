@@ -48,7 +48,9 @@ var orm = {
   // Effectively, the ORM's simple addCharacter method translates into a more complex SQL INSERT statement.
   insertOne: function (burger, callback) {
     var addQuery = "INSERT INTO burgers_t (burger_name) VALUES (?)";
-    connection.query(addQuery, [burger.burger_name], function (err,result) {
+    console.log(addQuery);
+    console.log(burger);
+    connection.query(addQuery, [burger], function (err,result) {
       if (err) {
         console.log(err);
         return res.status(500).end();

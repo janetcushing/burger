@@ -26,11 +26,12 @@
                         <div>
                             <span class="label"> </span> {{this.id}}
                             <span class="label">. </span> {{this.burger_name}}
-                             <span class="label">Devoured:</span> {{this.devoured}}</div>
+                            {{!-- <span class="label">Devoured:</span> {{this.devoured}} --}}
+                        </div>
                         <div>
-                        <button data-id="{{this.id}}" class="devour">Devour it!
-                            <a href="/{{this.id}}"></a>
-                        </button>
+                            <button data-id="{{this.id}}" class="devour">Devour it!
+                                <a href="/{{this.id}}"></a>
+                            </button>
                         </div>
                     </li>
                     {{/each}}
@@ -43,9 +44,9 @@
                 <ul>
                     {{#each eatenBurger}}
                     <li class="eaten">
-                        <span class="label">ID:</span> {{this.id}}
-                        <span class="label">Burger:</span> {{this.burger_name}}
-                        <span class="label">Devoured:</span> {{this.devoured}}
+                        <span class="label"> </span> {{this.id}}
+                        <span class="label">. </span> {{this.burger_name}}
+                        {{!-- <span class="label">Devoured:</span> {{this.devoured}} --}}
                     </li>
                     {{/each}}
                 </ul>
