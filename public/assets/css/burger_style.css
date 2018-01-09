@@ -1,218 +1,64 @@
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  background-color: #e9c76b;
+  color: #777777;
+}
 
+.mainHeading {
+  text-align: center;
+}
 
-  body {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 14px;
-    background-color: #e9c76b;
-    color: #777777;
-  }
+.burgerImg {
+  text-align: center;
+  height: 100px;
+}
 
- 
-  .mainHeading {
-    text-align: center;
-  }
+#eatDaBurger {
+  color: rgb(207, 5, 5);
+}
 
-  .burgerImg {
-    text-align: center;
-    height: 100px;
-  }
+.notEaten,
+.eaten {
+  background-color: rgb(235, 226, 226);
+  border: 1px solid rgb(156, 153, 153);
+  padding: 3px;
+}
 
-  #eatDaBurger {
-    color: red;
-  }
-  
-  .notEaten, .eaten {
-    background-color: rgb(235, 226, 226);
-    border: 1px solid rgb(221, 217, 217);
-    margin: 10px 10px 10px 10px;
-  }
+.noteaten {
+  margin: 10px 10px 10px 10px;
+}
 
-  .noteaten {
-    font-weight: 700;
-  }
+.eaten {
+  margin: 0px;
+}
 
-  .eaten {
-    font-weight: 200;
-  }
-  
-  .clear {
-    clear: both;
-  }
-  
-  /* used in contacts page*/
-  
-  /* form {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 18px;
-  } */
-  
-  /* input {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 18px;
-    width: 565px;
-  } */
+.newBurger {
+  text-align: center;
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+}
 
-  
+.submitBtn {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  color: whitesmoke;
+  background-color: #3b50af;
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+  width: 100px;
+  height: 35px;
+}
 
-  
+.textarea_msg {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  width: 400px;
+  height: 80px;
+  padding: 5px;
+  border-color: #97a4db;
+}
 
-  
-
-  .newBurger {
-    /* font-family: Georgia, Times, 'Times New Roman', serif; */
-    /* font-size: 8px; */
-    text-align: center;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
-    /* height: 45px; */
-  }
-  
-  .submitBtn {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 14px;
-    color: whitesmoke;
-    background-color: #3b50af;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
-    border-radius: 5px;
-    width: 100px;
-    height: 35px;
-  }
-  
-  .textarea_msg {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    width: 400px;
-    height: 80px;
-    padding: 5px;
-  }
-
-  .burger_msg {
-    font-size: 12px;
-  }
-  
-  
-  /* MEDIA TAGS */
-/*   
-  @media screen and (max-width: 980px) and (min-width: 769px) {
-    nav {
-      left: 55px;
-    }
-    .mainSection {
-      padding: 20px 10px 20px 10px;
-    }
-    .asideSection {
-      width: 580px;
-      margin: 30px 10px 40px 140px;
-      padding: 20px 10px 20px 10px;
-    }
-  }
-  
-  @media screen and (max-width: 768px) and (min-width: 641px) {
-    .mainHeading {
-      padding: 25px 40px 15px 10px;
-      margin: 0px 0px 0px 20px;
-    }
-    nav {
-      width: 200px;
-      margin: 0px 60px 0px 20px;
-      left: 148px;
-    }
-    .aboutButton,
-    .contactButton,
-    .portfolioButton {
-      padding: 0px 5px 0px 5px;
-    }
-    .mainSection {
-      margin: 30px 20px 30px 20px;
-      padding: 20px 10px 20px 10px;
-    }
-    .asideSection {
-      width: 560px;
-      margin: 20px 10px 0px 10px;
-      padding: 20px 10ps 0px 10px;
-    }
-  }
-  
-  @media screen and (max-width: 640px) and (min-width: 10px) {
-    body {
-      font-size: 16px;
-    }
-    header {
-      position: static;
-      margin-left: auto;
-      margin-right: auto;
-      height: 100px;
-    }
-    .mainHeading {
-      font-size: 16px;
-      text-align: center;
-      height: 25px;
-      width: 100%;
-      margin: 0px 0px 0px 0px;
-    }
-    nav {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      margin: 0px 30px 0px 30px;
-      position: sticky;
-      clear: both;
-    }
-    .aboutButton,
-    .contactButton,
-    .portfolioButton {
-      font-size: 14px;
-      text-align: center;
-      padding: 0px 10px 0px 10px;
-    }
-    .mainSection {
-      width: 400px;
-      height: auto;
-      margin: 10px 10px 10px 10px;
-      padding: 15px 10px 20px 10px;
-    }
-    .mainSectionRow1,
-    .mainSectionRow2,
-    .mainSectionRow3 {
-      width: 300px;
-      height: 300px;
-      background-color: white;
-      margin: 0px 0px 0px 0px;
-      padding: 10px 20px 10px 20px;
-    }
-    hangmanProject,
-    .RpgGameProject,
-    .TriviaGameProject,
-    .RutgersInfoWidgetProject,
-    .RockPaperScissorsProject {
-      padding: 10px 10px 10px 10px;
-    }
-    .asideSection {
-      height: auto;
-      width: 400px;
-      margin: 10px 0px 10px 0px;
-      padding: 15px 10px 0px 10px;
-    }
-    .mainSectionHead {
-      font-size: 19px;
-      line-height: 200%;
-      padding-bottom: 5px;
-    }
-    .textarea_msg {
-      width: 95%;
-    }
-    .textInput {
-      width: 97%;
-    }
-    .asideSectionHead {
-      font-size: 16px;
-      letter-spacing: 0px;
-      padding-bottom: 5px;
-    }
-    footer {
-      font-size: 11px;
-      padding: 20px;
-      border-top: 5px solid #4aaaa5;
-    }
-  } */
+.burger_msg {
+  font-size: 12px;
+}
