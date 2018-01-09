@@ -84,6 +84,27 @@ app.get("/index", function (req, res) {
   });
 });
 
+app.get("/", function (req, res) {
+  // Then display the JSON for the  burgers
+  // (Note how we're using the ORM here to run our searches)
+  console.log("server.js get");
+  orm.selectAll(function (data) {
+    console.log(data);
+    var uneaten = [];
+    var eaten = [];
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].devoured) {
+        eaten.push(data[i])
+      } else {
+        uneaten.push(data[i])
+      }
+    }
+    console.log(JSON.stringify(uneaten));
+    console.log(JSON.stringify(eaten));
+    res.render("index", {uneatenBurger: uneaten, eatenBurger: eaten});
+  });
+});
+
 
 // ================================================================================
 // ROUTER
