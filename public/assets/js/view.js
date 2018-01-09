@@ -3,10 +3,15 @@ $(document).on('click', '#submitBtn', function (event) {
     event.preventDefault();
     console.log("i clicked submit");
 
-    var newBurger = $("#newBurger").val().trim();
-    console.log("newBurger: " + newBurger);
+    // var newNewBurger = {
+    //     movie: $("#createmovie [name=movie]").val().trim()
+    //   };
+    var newBurger = { burger_name: $("#newBurger").val().trim()};
+    // var new_burger_name =  {burger_name: newBurger};
+    console.log("newBurger: " + JSON.stringify(newBurger));
+    // console.log("new_burger_name: " + new_burger_name);
     // Send the POST request.
-    $.ajax("/api/new", {
+    $.ajax("/index", {
         type: "POST",
         data: newBurger
     }).then(

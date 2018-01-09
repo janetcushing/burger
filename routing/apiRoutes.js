@@ -18,7 +18,6 @@ module.exports = function (app) {
         orm.selectAll(function (data) {
             console.log("data ");
             console.log(data);
-            console.log(data[0]);
             var uneaten = [];
             var eaten = [];
             for (let i = 0; i < data.length; i++) {
@@ -35,19 +34,20 @@ module.exports = function (app) {
         });
     });
 
-    // If a user sends data to add a new character...
-    app.post("/api/new", function (req, res) {
+    // If a user sends data to add a new burger...
+    app.post("/index", function (req, res) {
         // Take the request...
-        console.log("im adding a new burger");
-        var newBurger = req.body;
-        console.log(newBurger);
+        console.log("im adding a new burgerxxx");
+        var newBurger = req.body.burger_name;
+        console.log("newBurgerxxx: " + newBurger);
+        // console.log("burgerName: " + burgerName);
         // Then send it to the ORM to "save" into the DB.
         orm.insertOne(newBurger, function (data, err) {
-            // if (err){
-            //     console.log("hit an error:");
-            //     console.log(err);
-            //     return res.status(500).end();
-            // }
+            if (err){
+                console.log("hit an error:");
+                console.log(err);
+                return res.status(500).end();
+            }
             console.log("inserted the burger");
             console.log(data);
         });
