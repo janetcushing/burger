@@ -28,9 +28,7 @@ module.exports = function (app) {
                 }
                 res.render("index", {uneatenBurger: uneaten, eatenBurger: eaten});
             }
-            console.log(JSON.stringify(uneaten));
-            console.log(JSON.stringify(eaten));
-            res.render("index", {uneatenBurger: data});
+            // res.render("index", {uneatenBurger: data});
         });
     });
 
@@ -50,6 +48,7 @@ module.exports = function (app) {
             }
             console.log("inserted the burger");
             console.log(data);
+            res.status(200).end();
         });
 
     });
