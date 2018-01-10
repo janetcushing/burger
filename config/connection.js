@@ -1,3 +1,7 @@
+/***********************************************
+ * Connection to the database
+ ***********************************************/
+
 var mysql = require("mysql");
 var connection;
 
@@ -19,7 +23,7 @@ connection.connect(function (err) {
         console.error("error connecting: " + err.stack);
         return;
       }
-    console.log("I have successfully connected to the burgers_db");
+    console.log("I have successfully connected to the database");
     console.log("connected as id " + connection.threadId);
 });
 
