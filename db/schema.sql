@@ -1,9 +1,11 @@
-### Schema
+--------------------------------------------
+--- Database Schema
+--------------------------------------------
+
 DROP   DATABASE burgers_db;
 CREATE DATABASE burgers_db;
 
 USE burgers_db;
-
 
 CREATE TABLE burgers_t
 (

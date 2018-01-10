@@ -1,4 +1,8 @@
-##DELETE FROM `burgers_db`.`burgers_t`;
+
+--------------------------------------------
+--- Database Schema
+--------------------------------------------
+---DELETE FROM `burgers_db`.`burgers_t`;
 
 INSERT INTO `burgers_db`.`burgers_t` (`burger_name`) VALUES 
    ("Bacon Double Cheese Burger")
