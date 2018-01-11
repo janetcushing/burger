@@ -20,8 +20,7 @@ function addBurger() {
         });
 }
 
-function updateDevourStatus() {
-    var id = $(this).data("id");
+function updateDevourStatus(id) {  
     console.log("id: " + id);
     // Send the POST request.
     $.ajax("/api/devoured/" + id, {
@@ -63,7 +62,8 @@ $(document).ready(function () {
                 // Make sure to preventDefault on a submit event.
                 event.preventDefault();
                 console.log("i clicked a devour button");
-                updateDevourStatus();
+                var id = $(this).data("id");
+                updateDevourStatus(id);
 
             });
         });
