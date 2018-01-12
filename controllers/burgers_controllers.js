@@ -6,77 +6,82 @@
 // =============================================================
 // Dependencies
 // =============================================================
+var express = require("express");
 var orm = require("../config/orm.js");
+var burger = require("../models/burger");
+var router = express.Router();
 
 // =============================================================
 // Routes
 // =============================================================
-module.exports = function (app) {
 
-    app.get("/", function (req, res) {
-  // Display the JSON for the  burgers
-  console.log(" get /");
-  orm.selectAll(function (data) {
-    console.log(data);
-    var uneaten = [];
-    var eaten = [];
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].devoured) {
-        eaten.push(data[i])
-      } else {
-        uneaten.push(data[i])
-      }
-    }
-    res.render("index", {uneatenBurger: uneaten, eatenBurger: eaten});
-  });
-});
-
-    app.get("/index", function (req, res) {
-        // Display the JSON for the burgers
-        console.log(" get /index");
-        orm.selectAll(function (data) {
-            console.log("data ");
-            console.log(data);
-            var uneaten = [];
-            var eaten = [];
-            for (let i = 0; i < data.length; i++) {
-                if (data[i].devoured) {
-                    eaten.push(data[i])
-                } else {
-                    uneaten.push(data[i])
-                }
-                res.render("index", {uneatenBurger: uneaten, eatenBurger: eaten});
+      router.get("/", function(req, res) {
+          console.log("im in the get/");
+        burger.all(function(data) {
+          var uneaten = [];
+          var eaten = [];
+          console.log(data.length);
+          for (let i = 0; i < data.length; i++) {
+            if (data[i].devoured) {
+                eaten.push(data[i])
+            } else {
+                uneaten.push(data[i])
             }
+        }
+        console.log("uneaten " + JSON.stringify(uneaten));
+        res.render("index", {
+            uneatenBurger: uneaten,
+            eatenBurger: eaten
         });
-    });
+        });
+      });
+
+      router.get("/index", function(req, res) {
+        burger.all(function(data) {
+        //   var hbsObject = {
+        //     burgers: data
+        //   };
+        //   console.log(hbsObject);
+          var uneaten = [];
+          var eaten = [];
+          for (let i = 0; i < data.length; i++) {
+            if (data[i].devoured) {
+                eaten.push(data[i])
+            } else {
+                uneaten.push(data[i])
+            }
+        }
+        res.render("index", {
+            uneatenBurger: uneaten,
+            eatenBurger: eaten
+        });
+        });
+      });
 
 
     // add a new burger
-    app.post("/index", function (req, res) {
-        console.log("im adding a new burgerxxx");
-        var newBurger = req.body.burger_name;
-        console.log("newBurgerxxx: " + newBurger);
-        // console.log("burgerName: " + burgerName);
-        // insert a new row in the database
-        orm.insertOne(newBurger, function (data, err) {
-            if (err){
-                console.log("hit an error:");
-                console.log(err);
-                return res.status(500).end();
-            }
-            console.log("inserted the burger");
+    router.post("/api/burgers", function (req, res) {
+        console.log("im adding a new burgerzzz");
+       
+       
+        // newBurger = req.body;
+        // console.log("newBurger: " + newBurger);
+        // var burgerObject = {
+        //     "burger_name": req.body.burger_name
+        //   };
+        //   console.log(newBurger);
+        burger.create([req.body.burger_name], function(result){
             res.status(200).end();
-        });
-
+        }); 
     });
 
     // update the devoured status
-    app.put("/api/devoured/:id", function (req, res) {
+    router.put("/api/devoured/:id", function (req, res) {
         console.log("im devouring a burger");
         // update the DB.
         var burgerId = req.params.id;
         console.log("id " + burgerId);
-        orm.updateOne(burgerId, function (data, err) {
+        burger.update(burgerId, function(data, err) {
             if (err) {
                 // If an error occurred, send a generic server faliure
                 console.log(err);
@@ -90,6 +95,7 @@ module.exports = function (app) {
                 console.log("updated the burger");
                 res.status(200).end();
             }
-        });
     });
-};
+});
+
+module.exports = router;

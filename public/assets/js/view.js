@@ -9,7 +9,7 @@ function addBurger() {
     };
     console.log("newBurger: " + JSON.stringify(newBurger));
     // Send the POST request.
-    $.ajax("/index", {
+    $.ajax("/api/burgers", {
         type: "POST",
         data: newBurger
     }).then(
