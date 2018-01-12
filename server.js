@@ -40,8 +40,10 @@ app.set("view engine", "handlebars");
 // The below points our server to a series of "route" files.
 // These routes give our server a "map" of how to respond when users visit or request data from the URL.
 // ================================================================================
-require("./controllers/burgers_controllers")(app);
+// require("./controllers/burgers_controllers")(app);
+var routes = require("./controllers/burgers_controllers.js");
 
+app.use("/", routes);
 
 // =============================================================================
 // LISTENER
